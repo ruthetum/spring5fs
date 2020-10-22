@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 public class MemberRegisterService {
     private MemberDao memberDao;
 
+    // 생서자를 통해 의존 객체를 주입 받음
     public MemberRegisterService(MemberDao memberDao) {
         this.memberDao = memberDao;
     }

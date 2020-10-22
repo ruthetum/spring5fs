@@ -8,19 +8,19 @@ import org.springframework.context.annotation.Configuration;
 public class AppContext {
 
     @Bean
-    public MemberDao memeberDao(){
+    public MemberDao memberDao(){
         return new MemberDao();
     }
 
     @Bean
     public MemberRegisterService memberRegisterService() {
-        return new MemberRegisterService(memeberDao());
+        return new MemberRegisterService(memberDao());
     }
 
     @Bean
     public ChangePasswordService changePasswordService(){
         ChangePasswordService pwdSvc = new ChangePasswordService();
-        pwdSvc.setMemberDao(memeberDao());
+        pwdSvc.setMemberDao(memberDao());
         return pwdSvc;
     }
 
@@ -31,13 +31,13 @@ public class AppContext {
 
     @Bean
     public MemberListPrinter memberListPrinter() {
-        return new MemberListPrinter(memeberDao(), memberPrinter());
+        return new MemberListPrinter(memberDao(), memberPrinter());
     }
 
     @Bean
     public MemberInfoPrinter memberInfoPrinter() {
         MemberInfoPrinter memberInfoPrinter = new MemberInfoPrinter();
-        memberInfoPrinter.setMemberDao(memeberDao());
+        memberInfoPrinter.setMemberDao(memberDao());
         memberInfoPrinter.setMemberPrinter(memberPrinter());
         return memberInfoPrinter;
     }

@@ -15,6 +15,8 @@ public class MainForSpring {
     public static void main(String[] args) throws IOException {
 
         context = new AnnotationConfigApplicationContext(AppContext.class);
+        // 설정 파일 2개 일 때
+        // context = new AnnotationConfigApplicationContext(AppConfig1.class, AppConfig2.class);
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 

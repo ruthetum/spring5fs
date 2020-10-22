@@ -34,6 +34,9 @@ public class MainForSpring {
             } else if (cmd.equals("list ")) {
                 processListCommand();
                 continue;
+            } else if (cmd.equals("info ")) {
+                processInfoCommand(cmd.split(" "));
+                continue;
             }
             printHelp();
         }
@@ -83,6 +86,15 @@ public class MainForSpring {
     private static void processListCommand() {
         MemberListPrinter listPrinter = context.getBean("memberListPrinter", MemberListPrinter.class);
         listPrinter.printAll();
+    }
+
+    private static void processInfoCommand(String[] arg) {
+        if (arg.length != 2) {
+            printHelp();
+            return;
+        }
+        MemberInfoPrinter memberInfoPrinter = context.getBean("memberInfoPrinter", MemberInfoPrinter.class);
+        memberInfoPrinter.printMemberInfo(arg[1]);
     }
 
     private static void printHelp() {

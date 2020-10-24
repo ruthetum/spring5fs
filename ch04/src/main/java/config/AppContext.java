@@ -1,6 +1,7 @@
 package config;
 
 import DI.*;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -23,10 +24,21 @@ public class AppContext {
         return new ChangePasswordService();
     }
 
+//    @Bean
+//    public MemberPrinter memberPrinter() {
+//        return new MemberPrinter();
+//    }
     @Bean
-    public MemberPrinter memberPrinter() {
+    @Qualifier("printer")
+    public MemberPrinter memberPrinter1() {
         return new MemberPrinter();
     }
+
+    @Bean
+    public MemberPrinter memberPrinter2() {
+        return new MemberPrinter();
+    }
+
 
     @Bean
     public MemberListPrinter memberListPrinter() {

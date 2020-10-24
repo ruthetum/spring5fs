@@ -7,13 +7,6 @@ import java.time.format.DateTimeFormatter;
 public class MemberPrinter {
     private DateTimeFormatter dateTimeFormatter;
 
-//    @Autowired
-//    private Optional<DateTimeFormatter> opt;
-
-//    @Autowired
-//    @Nullable
-//    private DateTimeFormatter dateTimeFormatter;
-
     public MemberPrinter() {
         dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일");
     }

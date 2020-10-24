@@ -1,13 +1,15 @@
 package DI;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.time.LocalDateTime;
 
 public class MemberRegisterService {
+
+    @Autowired
     private MemberDao memberDao;
 
-    // 생서자를 통해 의존 객체를 주입 받음
-    public MemberRegisterService(MemberDao memberDao) {
-        this.memberDao = memberDao;
+    public MemberRegisterService() {
     }
 
     public Long regist(RegisterRequest req) {

@@ -31,7 +31,7 @@ public class MainForSpring {
             } else if (cmd.startsWith("change ")) {
                 processChangeCommand(cmd.split(" "));
                 continue;
-            } else if (cmd.equals("list ")) {
+            } else if (cmd.equals("list")) {
                 processListCommand();
                 continue;
             } else if (cmd.equals("info ")) {

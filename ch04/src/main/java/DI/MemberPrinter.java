@@ -7,7 +7,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 public class MemberPrinter {
-    @Autowired(required = false)
     private DateTimeFormatter dateTimeFormatter;
 
 //    @Autowired
@@ -16,6 +15,10 @@ public class MemberPrinter {
 //    @Autowired
 //    @Nullable
 //    private DateTimeFormatter dateTimeFormatter;
+
+    public MemberPrinter() {
+        dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일");
+    }
 
     public void print(Member member){
         if (dateTimeFormatter == null) {

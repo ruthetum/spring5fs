@@ -24,10 +24,6 @@ public class AppContext {
         return new ChangePasswordService();
     }
 
-//    @Bean
-//    public MemberPrinter memberPrinter() {
-//        return new MemberPrinter();
-//    }
     @Bean
     @Qualifier("printer")
     public MemberPrinter memberPrinter1() {
@@ -35,10 +31,9 @@ public class AppContext {
     }
 
     @Bean
-    public MemberPrinter memberPrinter2() {
-        return new MemberPrinter();
+    public MemberSummaryPrinter memberPrinter2() {
+        return new MemberSummaryPrinter();
     }
-
 
     @Bean
     public MemberListPrinter memberListPrinter() {

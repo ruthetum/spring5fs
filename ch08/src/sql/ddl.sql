@@ -1,4 +1,4 @@
-create user 'spring5'@'localhost' identified by 'spring5';
+create user 'spring5'@'localhost' IDENTIFIED WITH mysql_native_password BY 'spring5';
 
 create database spring5fs character set=utf8;
 

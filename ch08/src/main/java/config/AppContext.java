@@ -5,12 +5,15 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import spring.MemberDao;
 import spring.MemberPrinter;
 import spring.MemberSummaryPrinter;
 
 @Configuration
-@ComponentScan(basePackages = {"spring"})
+@EnableTransactionManagement
 public class AppContext {
 
     @Bean(destroyMethod = "close")
@@ -26,6 +29,13 @@ public class AppContext {
         ds.setMinEvictableIdleTimeMillis(1000 * 60 * 3); // 최소 유휴 시간 3분
         ds.setTimeBetweenEvictionRunsMillis(1000 * 10); // 10초 주기로 검사
         return ds;
+    }
+
+    @Bean
+    public PlatformTransactionManager transactionManager() {
+        DataSourceTransactionManager tm = new DataSourceTransactionManager();
+        tm.setDataSource(dataSource());
+        return tm;
     }
 
     @Bean

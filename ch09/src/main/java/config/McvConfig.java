@@ -19,6 +19,6 @@ public class McvConfig implements WebMvcConfigurer {
     // JSP 경로 설정
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
-        registry.jsp("/WEB_INF/view/", ".jsp");
+        registry.jsp("/WEB-INF/view/", ".jsp");
     }
 }
